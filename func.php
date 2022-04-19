@@ -14,13 +14,16 @@ echo "<br>";
 // Возвращает как результат массив из трёх элементов с ключами ‘name’, ‘surname’ и ‘patronomyc’
 function getPartsFromFullname ($str) {
     $arr = array();
-    list($name, $surname, $patronomyc) = explode (' ', $str);
-    return print_r($arr);
+    list($surname, $name, $patronomyc) = explode (' ', $str);
+    $arr['surname'] = $surname;
+    $arr['name'] = $name;
+    $arr['patronomyc'] = $patronomyc;
+    return $arr;
 }
 
 foreach ($example_persons_array as $value) {
-    echo $value['fullname'] . "<br>";
-    getPartsFromFullname($value['fullname']);
+    // echo $value['fullname'] . "<br>";
+    print_r(getPartsFromFullname($value['fullname']));
 }
 // Возвращает как результат фамилию, имя и отчество, но склеенные через пробел
 function getFullnameFromParts() {
